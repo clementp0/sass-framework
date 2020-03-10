@@ -1,0 +1,175 @@
+//DEFINE VAR
+
+$nbCols: 12;
+$margin: 20px;
+$smCols: 4;
+$lgCols: 10;
+$mdCols: 8;
+$nbSpac: 4;
+$padding: 20px;
+$margin: 20px;
+
+//GRID CONFIG
+
+.flex-grid {
+    overflow: hidden;
+    > div {        
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: - $margin;    
+        > * {        
+            margin-right: $margin;
+            margin-bottom: $margin;
+        }
+    }
+}
+
+//MEDIA QUERIES & CLASSES FOR RESPONSIVE
+
+@for $i from 1 through $nbCols {
+    .col-#{$i} {
+        flex-basis: calc(#{$i} * 100% / #{$nbCols} - #{$margin});
+}
+}
+@media (max-width: 480px) {
+
+    @for $i from 1 through $smCols {
+        .sm-#{$i} {
+            flex-basis: calc(#{$i} * 100% / #{$smCols} - #{$margin});
+    }
+}
+}
+@media (min-width: 481px) and (max-width:680px) {
+    @for $i from 1 through $lgCols {
+        .lg-#{$i} {
+            flex-basis: calc(#{$i} * 100% / #{$lgCols} - #{$margin});
+    }
+}
+}
+@media (min-width: 681px) and (max-width:850px) {
+    @for $i from 1 through $mdCols {
+        .md-#{$i} {
+            flex-basis: calc(#{$i} * 100% / #{$mdCols} - #{$margin});
+    }
+}
+}
+
+
+//TEXT ALIGN
+
+.text-left { 
+    text-align: left;
+}
+
+.text-right { 
+    text-align: right;
+}
+
+.text-center { 
+    text-align: center;
+}
+
+.text-justify { 
+    text-align: justify;
+}
+
+//FLOATS
+
+.left { 
+    float: left; 
+}
+
+.right { 
+    float: right; 
+}
+
+//JUSTIFY CONTENT
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+//ALIGN
+
+.align-center{
+    display: flex;
+    align-content: center;
+}
+
+.align-start{
+    display: flex;
+    align-content: flex-start;
+}
+
+.align-end{
+    display: flex;
+    align-content: flex-end;
+}
+
+.align-stretch{
+    display: flex;
+    align-content: stretch;
+}
+
+.align-between{
+    display: flex;
+    align-content: space-between;
+}
+
+.align-around{
+    display: flex;
+    align-content: space-around;
+}
+
+//CLASSES FOR PADDING(S)
+
+@for $i from 0 through $nbSpac {
+    .p-#{$i} {
+        padding : calc(#{$padding}*#{$i});
+    }
+
+    .pt-#{$i} {
+        padding-top : calc(#{$padding}*#{$i});
+    }
+
+    .pr-#{$i} {
+        padding-right : calc(#{$padding}*#{$i});
+    }
+
+    .pb-#{$i} {
+        padding-bottom : calc(#{$padding}*#{$i});
+    }
+
+    .pl-#{$i} {
+        padding-left : calc(#{$padding}*#{$i});
+    }
+}
+
+//CLASSES FOR MARGIN(S)
+
+@for $i from 0 through $nbSpac {
+    .m-#{$i} {
+        margin : calc(#{$margin}*#{$i});
+    }
+
+    .mt-#{$i} {
+        margin-top : calc(#{$margin}*#{$i});
+    }
+
+    .mr-#{$i} {
+        margin-right : calc(#{$margin}*#{$i});
+    }
+
+    .mb-#{$i} {
+        margin-bottom : calc(#{$margin}*#{$i});
+    }
+
+    .ml-#{$i} {
+        margin-left : calc(#{$margin}*#{$i});
+    }
+
+}
